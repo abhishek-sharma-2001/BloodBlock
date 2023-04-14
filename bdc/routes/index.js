@@ -33,7 +33,8 @@ router.post('/setDonor',async function(req,res,next){
   console.log("Conditions:",mCondition);
   try{
       await Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
-        res.send("Donor "+ data.donorno +" has been registered");
+        // let donorRegister = res.send("Donor "+ data.donorno +" has been registered");
+        alert("Donor "+ data.donorno +" has been registered");
       })
     }catch(err){
       await res.send(err.message);
@@ -57,7 +58,8 @@ router.post("/setRequest",async (req,res)=>{
   let data = req.body;
   try {
         await Contractinstance.methods.setReq(data.bankAddr,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
-              res.send("Request "+ data.bankAddr +" has been registered");
+              // res.send("Request "+ data.bankAddr +" has been registered");
+              alert("Request "+ data.bankAddr +" has been registered");
         })
   } catch (err) {
     await res.send(err.message);

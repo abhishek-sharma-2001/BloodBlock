@@ -11,10 +11,12 @@ var indexRouter = require('./routes/index');
  * Deployed Contract request and usng comtract instance of request to call methods of the register contract
 */
 var DonorRegisterJSON = require(path.join(__dirname,"build/contracts/Request.json"));//Donor Contract Variable
-web3 = new Web3('http://localhost:8545');//Connecting to Blockchain rpc endpoint
+web3 = new Web3('http://localhost:7545');//Connecting to Blockchain rpc endpoint
 //Initialize the account and contract instances
-  account = "0x1ac013d849c86f23f2e95eb4e68cbc20bf97dc93";//account Address for devmode 0xc22e2df070d7552dfe27b976efeb8bc6e76b077a
-  contractaddress = DonorRegisterJSON.networks['4002'].address;//Contract Address
+  account = "0x6d954B38eD10249288930F786d73032BBF46eAfb";//account Address for devmode 0xc22e2df070d7552dfe27b976efeb8bc6e76b077a
+  contractaddress = '0x669F18819b0106228028F237053bE2cf26C27221';//Contract Address
+  // contractaddress = DonorRegisterJSON.networks['5777'].address;//Contract Address
+  // contractaddress = "0xC83fC307159b774099D49640E723e3D0f02f932F";//Contract Address
   //Initialize the contract Abi
   contractabi = DonorRegisterJSON.abi;
   //Contract Instance
