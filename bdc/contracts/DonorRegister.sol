@@ -27,9 +27,8 @@ contract DonorRegister is Bdctoken{
       emit donorRegister(_donorid,_name);//Event called
   }
   //Function to get the donor details
- function getSample(address donorID)public view returns (string memory _name,uint _age,string memory _place,gender _donGen,bGrp _grp,bool _medCond,bool _active,uint token){
+ function getSample(address donorID)public view returns (uint _age,string memory _place,gender _donGen,bGrp _grp,bool _medCond,bool _active,uint token){
      //address donorID = msg.sender;
-     _name = donor[donorID].name;
      _age = donor[donorID].age;
      _place = donor[donorID].place;
      _donGen = donor[donorID].donGen;
@@ -37,6 +36,5 @@ contract DonorRegister is Bdctoken{
      _medCond = donor[donorID].medCond;
      _active = donor[donorID].active;
      token = balanceOf(donorID);//the amount of tokens the account holds
-
   }
 }

@@ -11,6 +11,7 @@ router.post('/setDonor',async function(req,res,next){
   //using instance of the contract to set donor data variables
   console.log(data.mCondition1);
   console.log(data.donorno);
+  console.log(data.donorName);
   /*
    medCounter and array med[] is used to check wether 3or more medical conditions turns to be true
   */
@@ -33,8 +34,10 @@ router.post('/setDonor',async function(req,res,next){
   console.log("Conditions:",mCondition);
   try{
       await Contractinstance.methods.setDonor(data.donorno,data.donorName,data.age,data.location,data.mobno,mCondition,data.gender,data.bloodGroup).send({from:account,gas:600000}).then((txn)=>{
-        // let donorRegister = res.send("Donor "+ data.donorno +" has been registered");
-        alert("Donor "+ data.donorno +" has been registered");
+        res.send("Donor "+ data.donorno +" has been registered");
+        
+        // alert("Donor "+ data.donorno +" has been registered");
+        // console.log("Donor "+ data.donorno +" has been registered");
       })
     }catch(err){
       await res.send(err.message);
@@ -42,24 +45,27 @@ router.post('/setDonor',async function(req,res,next){
     }
   
 });
-
+// console.log
 router.get('/getSample',async(req,res,next)=>{
   let data =req.query;
   try {
         await Contractinstance.methods.getSample(data.search).call({from:account}).then((txn)=>{
+          console.log(txn);
           res.render("getSample",{result:txn})
         })
   } catch (err) {
     await res.send(err.message);
     console.log(err.message);
+
   }
 })
 router.post("/setRequest",async (req,res)=>{
   let data = req.body;
   try {
+
         await Contractinstance.methods.setReq(data.bankAddr,data.reqlocation,data.reqbloodGroup).send({from:account,gas:600000}).then((txn)=>{
-              // res.send("Request "+ data.bankAddr +" has been registered");
-              alert("Request "+ data.bankAddr +" has been registered");
+              res.send("Request "+ data.bankAddr +" has been registered");
+              // window.alert("Request "+ data.bankAddr +" has been registered");
         })
   } catch (err) {
     await res.send(err.message);
