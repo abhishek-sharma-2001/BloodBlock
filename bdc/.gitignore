@@ -2,3 +2,8 @@ node_modules/
 package-lock.json
 build/
 dev/
+privatechain/
+bdcdemo.mp4
+DOCUMENTATION/
+testnet/
+test/
