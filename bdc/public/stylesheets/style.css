@@ -6,10 +6,14 @@
 a {
   color: #00B7FF;
 } */
+.color-change-2x{-webkit-animation:color-change-2x 2s linear infinite alternate both;animation:color-change-2x 2s linear infinite alternate both}
+@-webkit-keyframes color-change-2x{0%{background:#19dcea}100%{background:#b22cff}}@keyframes color-change-2x{0%{background:#19dcea}100%{background:#b22cff}}
+
 body {
   background: linear-gradient(300deg,#00bcd4,#ee82ee);
   background-size: 120% 120%;
   animation: gradient-animation 5s ease infinite;
+
 }
 
 @keyframes gradient-animation {
@@ -103,3 +107,9 @@ iframe{
   overflow: hidden;
   /* background-color: black; */
 }
+
+.dimen{
+  width: 540px;
+  height: 690px;
+  /* background-color: black; */
+} 
